@@ -3,16 +3,21 @@ package springframework.di;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import springframework.di.controllers.ConstructorInjectedController;
-import springframework.di.controllers.MyController;
-import springframework.di.controllers.PropertyInjectedController;
-import springframework.di.controllers.SetterInjectedController;
+import springframework.di.controllers.*;
 
 @SpringBootApplication
 public class DiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(DiApplication.class, args);
+
+		PetController petController = (PetController) ctx.getBean("petController");
+		System.out.println("--- The Best Pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
+
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 		System.out.println("------- Primary Bean");
