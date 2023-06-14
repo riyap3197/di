@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: cat,ES
+
+
+#  config:
+#    activate:
+#      on-profile:
+di:
+  username: YmlUserName
+  password: YmlPassword
+  jdbcurl: Yml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+di:
+  username: YmlProdUserName
+  password: YmlProdPassword
+  jdbcurl: YmlProd

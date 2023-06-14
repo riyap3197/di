@@ -9,15 +9,15 @@ import springframework.di.services.*;
 import springframework.pets.PetService;
 import springframework.pets.PetServiceFactory;
 
-@PropertySource("classpath:datasource.properties")
+//@PropertySource("classpath:application.yml")
 @ImportResource("classpath:di-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${username}") String username,
-                                  @Value("${password}") String password,
-                                  @Value("${jdbcurl}") String jdbcurl){
+    FakeDataSource fakeDataSource(@Value("${di.username}") String username,
+                                  @Value("${di.password}") String password,
+                                  @Value("${di.jdbcurl}") String jdbcurl){
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUsername(username);
         fakeDataSource.setPassword(password);
