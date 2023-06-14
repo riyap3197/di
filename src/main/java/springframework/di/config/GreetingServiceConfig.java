@@ -1,15 +1,13 @@
 package springframework.di.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import springframework.di.repositories.EnglishGreetingRepository;
 import springframework.di.repositories.EnglishGreetingRepositoryImpl;
 import springframework.di.services.*;
 import springframework.pets.PetService;
 import springframework.pets.PetServiceFactory;
 
+@ImportResource("classpath:di-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -51,11 +49,6 @@ public class GreetingServiceConfig {
     @Bean
     PrimaryGreetingService primaryGreetingService() {
         return new PrimaryGreetingService();
-    }
-
-    @Bean
-    ConstructorGreetingService constructorGreetingService() {
-        return new ConstructorGreetingService();
     }
 
     @Bean
