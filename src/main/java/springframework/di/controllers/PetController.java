@@ -1,7 +1,7 @@
 package springframework.di.controllers;
 
 import org.springframework.stereotype.Controller;
-import springframework.di.services.PetService;
+import springframework.pets.PetService;
 
 @Controller
 public class PetController {
